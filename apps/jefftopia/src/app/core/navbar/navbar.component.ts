@@ -20,8 +20,7 @@ import {
 })
 export class JSNavbar {
 
-    // public isMobileNavVisible: Observable<boolean>;
-    private isVisible: boolean;
+    public isVisible: boolean;
     private store: Store<AppState>;
 
     @ViewChild('menuList') menuList: ElementRef;

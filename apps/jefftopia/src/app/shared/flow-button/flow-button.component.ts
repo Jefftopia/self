@@ -45,7 +45,7 @@ export class JSFlowButton implements AfterViewInit {
         this.mouseleaveObservable.subscribe(x => this.onThrottleMouseLeave(x));
     }
 
-    public onClick(e) {
+    public onClick() {
         const subject = encodeURIComponent('Connecting from your personal webpage');
         window.location.href=`mailto:jsmith6690@gmail.com?subject=${subject}`;
     }

@@ -7,8 +7,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class JSIcon implements OnInit {
   @Input() name: string;
-  private class: string;
-  private href: string;
+  public class: string;
+  public href: string;
 
   ngOnInit() {
     this.class = `icon icon-${this.name}`;
