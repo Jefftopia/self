@@ -1,0 +1,34 @@
+<nav>
+    <div #container padding container>
+        <div>
+            <ul class="menu-ctrls">
+                <li>
+                    <js-icon
+                        *ngIf="!isVisible"
+                        (click)="showNav()" name="menu">
+                    </js-icon>
+                    <js-icon
+                        *ngIf="isVisible"
+                        (click)="hideNav()" name="close">
+                    </js-icon>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul #menuList class="menu-list header-menu">
+                <!-- <li>
+                    <a link-hover href="javascript:void">About</a>
+                </li> -->
+                <li>
+                    <a link-hover target="_blank" href="https://www.linkedin.com/in/jeffrey-smith-b6904257/">LinkedIn</a>
+                </li>
+                <li>
+                    <a link-hover target="_blank" href="https://stackoverflow.com/users/2387291/jefftopia">Stackoverflow</a>
+                </li>
+                <li>
+                    <a link-hover target="_blank" href="https://github.com/Jefftopia">Github</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

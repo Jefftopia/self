@@ -1,0 +1,23 @@
+@keyframes pulse {
+    25% {
+        transform: scale(1.05);
+    }
+    75% {
+        transform: scale(0.95);
+    }
+}
+
+[pulse] {
+    display: inline-block;
+    -webkit-tap-highlight-color: transparent;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px transparent;
+
+    &:hover, &:active, &:focus,
+     {
+        animation-name: pulse;
+        animation-duration: 1.5s;
+        animation-timing-function: ease;
+        animation-iteration-count: infinite;
+    }
+}

@@ -1,0 +1,21 @@
+:host {
+    font-family: 'Cardo', serif;
+}
+
+.letter {
+    display: inline-block;
+    -webkit-tap-highlight-color: transparent;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px transparent;
+    padding: 0.1rem;
+    transition: all 0.3s ease;
+    // transition-delay: 0.1s;
+    min-width: 1.1rem;
+}
+
+@media only screen and (max-width: 576px) {
+    .letter {
+        font-size: 37px !important;
+        display: inline;
+    }
+}

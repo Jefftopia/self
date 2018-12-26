@@ -7,5 +7,15 @@
     "tslint.json": "*",
     "nx.json": "*"
   },
-  "projects": {}
+  "projects": {
+    "jefftopia": {
+      "tags": []
+    },
+    "jefftopia-e2e": {
+      "tags": []
+    },
+    "geom": {
+      "tags": []
+    }
+  }
 }

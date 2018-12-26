@@ -1,0 +1,65 @@
+[no-padding] {
+    --padding-start: 0;--padding-end: 0;--padding-top: 0;--padding-bottom: 0;padding:0
+}
+
+[padding] {
+    --padding-start: var(--js-padding, 16px);--padding-end: var(--js-padding, 16px);--padding-top: var(--js-padding, 16px);--padding-bottom: var(--js-padding, 16px);padding:var(--js-padding, 16px)
+}
+
+[padding-top] {
+    --padding-top: var(--js-padding, 16px);padding-top:var(--js-padding, 16px)
+}
+
+[padding-start] {
+    --padding-start: var(--js-padding, 16px);padding-left:var(--js-padding, 16px)
+}
+
+[padding-end] {
+    --padding-end: var(--js-padding, 16px);padding-right:var(--js-padding, 16px)
+}
+
+[padding-bottom] {
+    --padding-bottom: var(--js-padding, 16px);padding-bottom:var(--js-padding, 16px
+    )
+
+}[padding-vertical] {
+    --padding-top: var(--js-padding, 16px);--padding-bottom: var(--js-padding, 16px);padding-top:var(--js-padding, 16px);padding-bottom:var(--js-padding, 16px)
+}
+
+[padding-horizontal] {
+    --padding-start: var(--js-padding, 16px);--padding-end: var(--js-padding, 16px);padding-left:var(--js-padding, 16px);padding-right:var(--js-padding, 16px)
+}
+
+[no-margin] {
+    --margin-start: 0;--margin-end: 0;--margin-top: 0;--margin-bottom: 0;margin:0
+}
+
+[margin] {
+    --margin-start: var(--js-margin, 16px);--margin-end: var(--js-margin, 16px);--margin-top: var(--js-margin, 16px);--margin-bottom: var(--js-margin, 16px);margin:var(--js-margin, 16px
+    )
+
+}[margin-top] {
+    --margin-top: var(--js-margin, 16px);margin-top:var(--js-margin, 16px)
+}
+
+[margin-start] {
+    --margin-start: var(--js-margin, 16px);margin-left:var(--js-margin, 16px)
+}
+
+[margin-end] {
+    --margin-end: var(--js-margin, 16px);margin-right:var(--js-margin, 16px)
+}
+
+[margin-bottom] {
+    --margin-bottom: var(--js-margin, 16px);margin-bottom:var(--js-margin, 16px)
+}
+
+[margin-vertical] {
+    --margin-top: var(--js-margin, 16px);--margin-bottom: var(--js-margin, 16px);margin-top:var(--js-margin, 16px);margin-bottom:var(--js-margin, 16px)
+}
+
+[margin-horizontal] {
+    --margin-start: var(--js-margin, 16px);--margin-end: var(--js-margin, 16px);margin-left:var(--js-margin, 16px);margin-right:var(--js-margin, 16px)
+}
+
+

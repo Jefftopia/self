@@ -1,0 +1,7 @@
+$grey1: rgb(80, 80, 97);
+$grey2: darken($color: $grey1, $amount: 25%);
+$grey3: lighten($color: $grey1, $amount: 25%);
+$grey4: lighten($color: $grey1, $amount: 15%);
+$blue1: #4961ff;
+$blue2: rgba(62,174,255,.6);
+$blue3: darken($blue1, 30%);

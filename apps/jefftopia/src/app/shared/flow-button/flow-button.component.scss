@@ -1,0 +1,49 @@
+@import './colors';
+
+button {
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    // color: #fff;
+    color: $grey1;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 20px 35px;
+    height: 80px;
+    line-height: 40px;
+    cursor: pointer;
+
+    &:before {
+        position: absolute;
+        display: block;
+        z-index: -1px;
+        content: attr(data-label);
+        top: 20px;
+        opacity: .4;
+        transition: opacity .1s 0;
+    }
+}
+
+.circle {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    border: 2px solid #4961ff;
+    box-shadow: 1px 4px 30px rgba(62,174,255,.6);
+    border-radius: 40px;
+    pointer-events: none;
+    transform: translateZ(-20px);
+    transition: box-shadow 0.4s,background-color 0.4s, opacity 0.5s, width 0.4s, transform 0.3s;
+}
+
+.label {
+    position: relative;
+    display: block;
+    clip-path: circle(40px at 5px 50%);
+    transition: opacity .2s;
+}

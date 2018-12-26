@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css?family=Cardo|Questrial');
+
+// font-family: 'Cardo', serif;
+// font-family: 'Questrial', sans-serif;
+
+a {
+    background-color:transparent;
+    color:var(--js-color-primary, #3880ff)}
+h1,h2,h3,h4,h5,h6 {
+    margin-top:16px;margin-bottom:10px;font-weight:500;line-height:1.2
+}
+
+h1 {
+    margin-top:20px;font-size:26px
+}
+
+h2 {
+    margin-top:18px;font-size:24px
+}
+
+h3 {
+    font-size:22px
+}
+
+h4 {
+    font-size:20px
+}
+
+h5 {
+    font-size:18px
+}
+
+h6 {font-size:16px}
+
+small {
+    font-size:75%
+}
+
+sub,sup {
+    position:relative;
+    font-size:75%;
+    line-height:0;
+    vertical-align:baseline
+}
+
+sup {
+    top:-.5em
+}
+
+sub{ bottom:-.25em}
+
+[small] { font-size: 0.8rem !important; }
+[medium] { font-size: 1.1rem !important; }
+[md-lg] { font-size: 1.5rem !important; }
+[large] { font-size: 1.8rem !important; }
+[xl] { font-size: 2.3rem !important; }
+[xxl] { font-size: 3.8rem !important; }

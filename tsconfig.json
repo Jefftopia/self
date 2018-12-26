@@ -16,6 +16,9 @@
     ],
     "baseUrl": ".",
     "paths": {
+      "@jefftopia/geom": [
+        "libs/geom/src/index.ts"
+      ]
     }
   },
   "exclude": [

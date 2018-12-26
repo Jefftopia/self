@@ -1,0 +1,9 @@
+svg {
+    fill: currentColor;
+    transition: all .3s;
+
+    &:hover {
+        fill: black;
+        transform: scale(1.1);
+    }
+}

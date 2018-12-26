@@ -1,0 +1,7 @@
+<div #parent>
+    <span
+        class="letter"
+        *ngFor="let char of titleList"
+        [innerHTML]="char | safeHtml">
+    </span>
+</div>
