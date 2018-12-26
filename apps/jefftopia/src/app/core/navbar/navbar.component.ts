@@ -19,7 +19,6 @@ import {
     styleUrls: ['./navbar.component.scss']
 })
 export class JSNavbar {
-
     public isVisible: boolean;
     private store: Store<AppState>;
 
@@ -28,8 +27,6 @@ export class JSNavbar {
 
     @HostListener('window:resize', ['$event'])
     onResize(event) {
-        console.log('resize');
-
         requestAnimationFrame(() => {
             if (window.innerWidth > 768) {
                 this.menuList.nativeElement.style.display = '';
@@ -45,13 +42,11 @@ export class JSNavbar {
 
         this.store.pipe(select(selectMenuVisible))
             .subscribe(v => {
-                console.log(`v sub `, v);
                 this.isVisible = v;
             });
     }
 
     public showNav() {
-        console.log('show', this.isVisible);
         if (this.isVisible) return;
 
         this.store.dispatch(new Show());
