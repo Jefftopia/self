@@ -133,9 +133,9 @@ export class SwarmComponent implements OnDestroy, AfterViewInit {
         this.svg.selectAll('circle')
             .transition(t)
             .attr('transform', (d) => { return `translate(${this.x(d.x)},${this.y(d.y)})`; })
-            .attr('r', (d) => { return Math.min(1 + 1000 * Math.abs(d.xvel * d.yvel), 10); })
+            .attr('r', (d) => { return Math.min(1.5 + 1000 * Math.abs(d.xvel * d.yvel), 12); })
             .attr('fill', (_d) => {
-                return `hsl(${Math.random() * 360},95%,55%)`;
+                return `hsl(${Math.random() * 360},60%,55%)`;
             });
     }
 

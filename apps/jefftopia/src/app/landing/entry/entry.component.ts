@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { SwarmComponent } from '../swarm/swarm.component';
 
 @Component({
@@ -9,6 +9,11 @@ import { SwarmComponent } from '../swarm/swarm.component';
 export class EntryComponent {
 
     @ViewChild(SwarmComponent) swarm: SwarmComponent;
+    @ViewChild('matrix') matrix: ElementRef;
+
+    // ngOnInit() {
+    //     this.matrix.nativeElement.style = `transform: matrix(1, 0.1, 0.1, 1, 0, 0)`;
+    // }
 
     public resume() {
         this.swarm.resume();
@@ -20,6 +25,5 @@ export class EntryComponent {
         this.stopped = true;
     }
 
-    public title = 'Landing';
     public stopped: boolean = false;
 }

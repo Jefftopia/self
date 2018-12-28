@@ -28,7 +28,7 @@ export class JSFlowHeader implements AfterViewInit, OnInit {
     private mouseMoveSubject = new Subject<MouseEvent>();
 
     private mouseMoveObservable = this.mouseMoveSubject
-        .asObservable().pipe(sample(interval(300)));
+        .asObservable().pipe(sample(interval(200)));
 
     @ViewChild('parent') parent: ElementRef;
 
@@ -88,8 +88,7 @@ export class JSFlowHeader implements AfterViewInit, OnInit {
         if (this.nodeList.length) {
             this.nodeList.forEach(e => {
                 if (e) {
-                    e
-                        .setAttribute('style', `transform: scale(1)`);
+                    e.setAttribute('style', `transform: scale(1)`);
                 }
             });
 

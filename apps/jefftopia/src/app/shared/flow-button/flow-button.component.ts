@@ -11,6 +11,10 @@ import { Subject } from 'rxjs';
 import { interval, timer } from 'rxjs';
 import { sample, debounce } from 'rxjs/operators';
 
+import {
+    scaleLinear
+} from 'd3';
+
 @Component({
     selector: 'js-flow-button',
     templateUrl: './flow-button.component.html',
@@ -24,7 +28,10 @@ export class JSFlowButton implements AfterViewInit {
         .pipe(debounce(val => timer(200)));
 
     private mousemoveSubject = new Subject<MouseEvent>();
-    private mousemoveObservable = this.mousemoveSubject.asObservable().pipe(sample(interval(300)));
+    private mousemoveObservable = this.mousemoveSubject.asObservable().pipe(sample(interval(250)));
+    private host: ElementRef;
+    private scaleX: scaleLinear;
+    private scaleY: scaleLinear;
 
     @ViewChild('circle') circle: ElementRef;
     @ViewChild('label') label: ElementRef;
@@ -38,9 +45,19 @@ export class JSFlowButton implements AfterViewInit {
         this.mouseLeaveSubject.next($event);
     }
 
+    @HostListener('window:resize', ['$event'])
+    onResize(event) {
+        this.makeScales();
+    }
+
     @Input() text: string;
 
+    constructor(host: ElementRef) {
+        this.host = host;
+    }
+
     ngAfterViewInit() {
+        this.makeScales();
         this.mousemoveObservable.subscribe(x => this.onThrottleMouseMove(x));
         this.mouseleaveObservable.subscribe(x => this.onThrottleMouseLeave(x));
     }
@@ -50,6 +67,18 @@ export class JSFlowButton implements AfterViewInit {
         window.location.href=`mailto:jsmith6690@gmail.com?subject=${subject}`;
     }
 
+    private makeScales() {
+        const rect = (<HTMLElement>this.host.nativeElement).parentElement.getBoundingClientRect();
+
+        this.scaleX = scaleLinear()
+            .domain([rect.left, rect.right])
+            .range([-40, 52]);
+
+        this.scaleY = scaleLinear()
+            .domain([rect.top, rect.bottom])
+            .range([-35, 35]);
+    }
+
     private onThrottleMouseLeave(e: MouseEvent) {
         this.circle.nativeElement.style = `width: 80px; transform: translate3d(0px, 0px, -20px);`;
         this.label.nativeElement.style = `clip-path: circle(40px at 5px calc(50% + 0px));`;
@@ -57,11 +86,10 @@ export class JSFlowButton implements AfterViewInit {
 
     private onThrottleMouseMove(e: MouseEvent) {
         const { clientX, clientY } = e;
-        const origin = this.origin;
 
         const delta = {
-            dx: clientX - origin.x,
-            dy: clientY - origin.y
+            dx: this.scaleX(clientX),
+            dy: this.scaleY(clientY)
         };
 
         const isHover = this.isHover(this.btn.nativeElement);
@@ -72,38 +100,20 @@ export class JSFlowButton implements AfterViewInit {
 
     private updateLabel(delta, isHover: boolean) {
         const label = this.label.nativeElement;
-        const x = isHover ? delta.dx : 235;
-        const d = Math.max(275 - Math.abs(x), 40);
+        const x = isHover ? 180 : 40;
 
-        label.style = `clip-path: circle(${d}px at 5px calc(50% + 0px));`;
+        label.style = `clip-path: circle(${x}px at ${delta.dx+9}px calc(50% + 2px));`;
     }
 
     private updateCircle(delta, isHover: boolean) {
         let w = isHover ? `100%` : '80px';
-        const xSign = Math.sign(delta.dx);
-        const ySign = Math.sign(delta.dy);
-        const abx = xSign*delta.dx;
-        const aby = xSign*delta.dy;
-
-        if (abx >= 50) delta.dx = xSign * 45;
-        if (aby >= 25) delta.dy = ySign * 25;
 
         this.circle.nativeElement.style = `width: ${w};
-    transform: translate3d(${delta.dx / 2}px, ${delta.dy / 2}px, -20px);
+    transform: translate3d(${delta.dx*1.2}px, ${delta.dy}px, -20px);
     `;
     }
 
     private isHover(e) {
         return e.matches(':hover');
-    }
-
-    private get origin() {
-        // const d = this.nativeHost;
-        const d = this.btn.nativeElement;
-
-        return {
-            x: d.offsetLeft + d.offsetWidth / 2,
-            y: d.offsetTop + d.offsetHeight / 2
-        };
     }
 }

@@ -1,6 +1,7 @@
 @import './colors';
 
 button {
+    background-color: transparent;
     display: inline-block;
     position: relative;
     box-sizing: border-box;
@@ -34,11 +35,11 @@ button {
     width: 80px;
     height: 80px;
     border: 2px solid #4961ff;
-    box-shadow: 1px 4px 30px rgba(62,174,255,.6);
+    box-shadow: 1px 3px 22px rgba(62,174,255,.6);
     border-radius: 40px;
     pointer-events: none;
     transform: translateZ(-20px);
-    transition: box-shadow 0.4s,background-color 0.4s, opacity 0.5s, width 0.4s, transform 0.3s;
+    transition: box-shadow 0.4s,background-color 0.4s, opacity 0.5s, width 0.3s, transform 0.3s;
 }
 
 .label {
